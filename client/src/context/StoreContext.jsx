@@ -8,9 +8,14 @@ const StoreContextProvider = (props) => {
 
   // ✅ Initialize from localStorage so state persists on refresh
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+  const [user, setUser] = useState(() => {
+    try {
+      const storedUser = localStorage.getItem("user");
+      return storedUser ? JSON.parse(storedUser) : null;
+    } catch {
+      return null;
+    }
+  });
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {

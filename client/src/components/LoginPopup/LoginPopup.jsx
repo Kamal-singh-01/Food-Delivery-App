@@ -51,7 +51,7 @@ export const LoginPopup = ({ setShowLogin }) => {
       }
 
       // Save token to localStorage
-      // ✅ add these instead
+     
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       setToken(response.data.token);
