@@ -1,5 +1,5 @@
 import Food from '../models/Food.js';
-import  cloudinary from '../utils/cloudinary.js';
+import  cloudinary from '../config/cloudinary.js';
 
 // get all food items get  /api/foods
 export const getAllFood = async (req,res)=>{
