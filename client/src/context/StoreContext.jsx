@@ -1,12 +1,14 @@
-import { createContext, useState } from "react";
-import { food_list } from "../assets/assets";
+import { createContext, useEffect, useState } from "react";
+import axios from "../api/axios";
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+  const [food_list, setFood_list] = useState([]);
 
-  // ✅ Initialize from localStorage so state persists on refresh
+  
+  // Initialize from localStorage so state persists on refresh
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user, setUser] = useState(() => {
     try {
@@ -34,19 +36,33 @@ const StoreContextProvider = (props) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         let itemInfo = food_list.find((product) => product._id === item);
-        totalAmount += itemInfo.price * cartItems[item];
+        if (itemInfo) totalAmount += itemInfo.price * cartItems[item]; 
       }
     }
     return totalAmount;
   };
 
-  // ✅ Logout function
+  //  Logout function
   const logout = () => {
     setToken("");
     setUser(null);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
   };
+
+  // fetch food
+  const fetchFoods = async () => {
+    try {
+      const response = await axios.get("/foods");
+      setFood_list(response.data.data);
+    } catch (error) {
+      console.log("error in fetching foods ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFoods();
+  }, []);
 
   const contextValue = {
     food_list,
