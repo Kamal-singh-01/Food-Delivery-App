@@ -39,7 +39,7 @@ export const addFood = async (req,res)=>{
 //Delete /api/foods/:id (admin only)
 export const deleteFood = async (req,res)=>{
     try{
-        const food = await Food.findOneById(req.params.id);
+        const food = await Food.findById(req.params.id);
     if(!food) {
         return res.status(404).json({success:false , message:"item not found"});
     }
