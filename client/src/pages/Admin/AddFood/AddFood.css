@@ -1,0 +1,102 @@
+.add-food {
+  max-width: 600px;
+}
+
+.add-food h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.add-food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-food-image label {
+  display: block;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.add-food-image label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+}
+
+.add-food-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-food-field p {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+
+.add-food-field input,
+.add-food-field textarea,
+.add-food-field select {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.add-food-field input:focus,
+.add-food-field textarea:focus,
+.add-food-field select:focus {
+  border-color: tomato;
+}
+
+.add-food-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 13px;
+}
+
+.success-msg {
+  color: green;
+  font-size: 13px;
+}
+
+button[type="submit"] {
+  background: tomato;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 150px;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

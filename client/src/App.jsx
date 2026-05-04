@@ -7,6 +7,7 @@ import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import Order from "./pages/PlaceOrder/Order";
 import MyOrders from "./pages/MyOrders/MyOrders";
+import Admin from './pages/Admin/Admin'
 
 const App = () => {
   //display popup for login
@@ -22,6 +23,8 @@ const App = () => {
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
+
+          <Route path="/admin/*" element={<Admin/>} />
         </Routes>
       </div>
       <Footer />
