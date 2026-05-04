@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/", protect , placeOrder);
 router.get("/my" , protect , getMyOrders);
 router.get("/" , protect ,getAllOrders);
-router.post("/:id" , protect , updateOrderStatus);
+router.put("/:id" , protect , updateOrderStatus);
 
 export default router;
