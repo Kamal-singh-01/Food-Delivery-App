@@ -19,7 +19,7 @@ const FoodItem = ({id,name,price,description,image}) => {
                 <img onClick={()=>removeFromCart(id)} src={assets.remove_icon_red} alt="" />
                 <p>{cartItems[id]}</p>
                 <img onClick={()=>addToCart(id)} src={assets.add_icon_green} alt="" />
-            </div> // This div seems unnecessary. You might want to remove it.
+            </div> 
         )}
     </div>
     <div className="food-item-info">

@@ -10,7 +10,6 @@ export const LoginPopup = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Sign Up");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
   const { setToken, setUser } = useContext(StoreContext);
 
   // Form data state

@@ -6,6 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [food_list, setFood_list] = useState([]);
+  const [search , setSearch] = useState('');
 
   
   // Initialize from localStorage so state persists on refresh
@@ -76,6 +77,8 @@ const StoreContextProvider = (props) => {
     user,
     setUser,
     logout,
+    search,
+    setSearch
   };
 
   return (
