@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoutes.js';
 import foodRoutes from './routes/foodRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
+import messageRoute from './routes/messageRoute.js'
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/foods',foodRoutes);
 app.use('/api/orders',orderRoutes);
+app.use('/api/contact',messageRoute);
 
 // start server AFTER DB connects
 const startServer = async () => {

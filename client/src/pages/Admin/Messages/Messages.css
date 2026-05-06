@@ -1,0 +1,135 @@
+.messages {
+  max-width: 900px;
+}
+
+.messages h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.messages-count {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.unread-badge {
+  background: tomato;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.message-card {
+  display: grid;
+  grid-template-columns: 30px 1fr 180px;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  align-items: start;
+}
+
+.message-card.unread {
+  background: #fff8f8;
+  border-left: 3px solid tomato;
+}
+
+.message-card.read {
+  background: #fff;
+  border-left: 3px solid #e0e0e0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.dot.unread { background: tomato; }
+.dot.read { background: #ccc; }
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.message-header h3 {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.message-email {
+  font-size: 13px;
+  color: #666;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #999;
+  margin-left: auto;
+}
+
+.message-subject {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.message-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.message-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.read-btn {
+  background: #e8f5e9;
+  color: green;
+  border: 1px solid green;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background: #fff0f0;
+  color: tomato;
+  border: 1px solid tomato;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.no-messages {
+  text-align: center;
+  color: #888;
+  margin-top: 50px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  color: #888;
+}

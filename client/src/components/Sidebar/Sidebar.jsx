@@ -15,6 +15,10 @@ const Sidebar = () => {
         <NavLink to='/admin/orders' className={({isActive}) => isActive ? 'sidebar-option active' : 'sidebar-option'}>
           <p>📦 Orders</p>
         </NavLink>
+        {/* ✅ new */}
+        <NavLink to='/admin/messages' className={({isActive}) => isActive ? 'sidebar-option active' : 'sidebar-option'}>
+          <p>✉️ Messages</p>
+        </NavLink>
       </div>
     </div>
   );

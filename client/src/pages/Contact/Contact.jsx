@@ -1,35 +1,43 @@
-import React, { useState } from 'react';
-import './Contact.css';
+import React, { useState } from "react";
+import "./Contact.css";
+import axios from "../../api/axios.js"
 
 const Contact = () => {
-  const [formData , setFormData] = useState({
-    name:'',
-    email:'',
-    subject:'',
-    message:''
-  })
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const [submitted , setSubmitted] = useState(false);
-  const [loading , setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (e)=>{
-    setFormData({...formData , [e.target.name]:e.target.value});
-  }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError("");
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate sending message
-    setTimeout(() => {
-      setSubmitted(true);
+    setError("");
+    try {
+      const response = await axios.post("/contact", formData);
+      if (response.data.success) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || 'Something went wrong');
+    }finally{
       setLoading(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+    }
   };
 
   return (
-    <div className='contact'>
-
+    <div className="contact">
       {/* Header */}
       <div className="contact-header">
         <h1>Contact Us</h1>
@@ -37,7 +45,6 @@ const Contact = () => {
       </div>
 
       <div className="contact-container">
-
         {/* Left - Contact Info */}
         <div className="contact-info">
           <div className="contact-info-item">
@@ -80,8 +87,13 @@ const Contact = () => {
             <div className="contact-success">
               <p>✅</p>
               <h3>Message Sent!</h3>
-              <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
-              <button onClick={() => setSubmitted(false)}>Send Another Message</button>
+              <p>
+                Thank you for reaching out. We'll get back to you within 24
+                hours.
+              </p>
+              <button onClick={() => setSubmitted(false)}>
+                Send Another Message
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="contact-form">
@@ -137,12 +149,11 @@ const Contact = () => {
               </div>
 
               <button type="submit" disabled={loading}>
-                {loading ? 'Sending...' : 'Send Message ✉️'}
+                {loading ? "Sending..." : "Send Message ✉️"}
               </button>
             </form>
           )}
         </div>
-
       </div>
     </div>
   );
