@@ -37,13 +37,13 @@ const Navbar = ({ setShowLogin }) => {
         >
           mobile-app
         </a>
-        <a
-          href="#footer"
+        <Link
+          to="/contact"
           onClick={() => setMenu("contact-us")}
           className={menu === "contact-us" ? "active" : ""}
         >
           contact us
-        </a>
+        </Link>
       </ul>
 
       <div className="navbar-right">
@@ -54,9 +54,9 @@ const Navbar = ({ setShowLogin }) => {
             setShowSearch(!showSearch);
             setSearch("");
           }}
-           style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
         />
-         {/* {show when user click on search icon} */}
+        {/* {show when user click on search icon} */}
         {showSearch && (
           <div className="navbar-search">
             <input
@@ -67,7 +67,9 @@ const Navbar = ({ setShowLogin }) => {
               autoFocus
             />
             {search && (
-              <span onClick={() => setSearch('')} className="clear-search">✕</span>
+              <span onClick={() => setSearch("")} className="clear-search">
+                ✕
+              </span>
             )}
           </div>
         )}

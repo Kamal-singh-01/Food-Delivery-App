@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home";
 import Order from "./pages/PlaceOrder/Order";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import Admin from './pages/Admin/Admin'
+import Contact from "./pages/Contact/Contact";
 
 const App = () => {
   //display popup for login
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
+          <Route path='/contact' element={<Contact/>}/>
 
           <Route path="/admin/*" element={<Admin/>} />
         </Routes>
