@@ -27,6 +27,7 @@ const App = () => {
           <Route path='/contact' element={<Contact/>}/>
 
           <Route path="/admin/*" element={<Admin/>} />
+        /// have to add delivery boy Routes
         </Routes>
       </div>
       <Footer />
