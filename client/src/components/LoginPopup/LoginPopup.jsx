@@ -50,7 +50,7 @@ export const LoginPopup = ({ setShowLogin }) => {
       }
 
       // Save token to localStorage
-     
+
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       setToken(response.data.token);
@@ -121,8 +121,14 @@ export const LoginPopup = ({ setShowLogin }) => {
         </button>
 
         <div className="login-popup-condition">
-          <input type="checkbox" required />
-          <p>By continuing, i agree to the terms of use & privacy policy</p>
+          {currState !== "Login" ? (
+            <>
+              <input type="checkbox" required />
+              <p>By continuing, i agree to the terms of use & privacy policy</p>
+            </>
+          ) : (
+            <p></p>
+          )}
         </div>
 
         {currState === "Login" ? (
