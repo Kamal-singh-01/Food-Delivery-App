@@ -25,7 +25,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/foods',foodRoutes);
 app.use('/api/orders',orderRoutes);
 app.use('/api/contact',messageRoute);
-app.use('/api/deliveryBoy',deliveryBoy);
+app.use('/api/deliveryBoys',deliveryBoy);
 
 // start server AFTER DB connects
 const startServer = async () => {
